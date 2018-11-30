@@ -7,7 +7,8 @@ public class EnemyControl : MonoBehaviour
 	public float enemyHealth = 1;
 	public float enemySpeed = 2;
 	
-	void Start () {
+	void Start () 
+	{
 		
 	}
 	

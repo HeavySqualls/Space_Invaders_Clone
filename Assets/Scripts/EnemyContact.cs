@@ -20,8 +20,7 @@ public class EnemyContact : MonoBehaviour
             enemyHealth--;
             if (enemyHealth <= 0)
             {
-                //TODO - DESTROY AMMO1
-                Destroy(other);
+                Destroy(other.gameObject);
                 Destroy(gameObject);
             }
         }
@@ -32,9 +31,8 @@ public class EnemyContact : MonoBehaviour
             enemyHealth--;
             if (enemyHealth <= 0)
             {
-                //TODO - DESTROY AMMO2
+                Destroy(other.gameObject);
                 Destroy(gameObject);
-           
             }
         }
     }

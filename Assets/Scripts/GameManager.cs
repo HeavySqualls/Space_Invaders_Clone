@@ -14,9 +14,7 @@ public class GameManager : MonoBehaviour
 // GAME OBJECT VARS
 	public GameObject player;
 	public GameObject clonePlayer;
-	//public GameObject enemy1;
-	//public GameObject enemy2;
-	//public GameObject enemy3;
+
 	//public GameObject deathParticles;
 	
 // SCREEN SHAKE VARS
