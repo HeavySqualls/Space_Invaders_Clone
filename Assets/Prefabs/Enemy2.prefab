@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 4582944960581496}
   - component: {fileID: 33147416859950762}
   - component: {fileID: 23160212829539828}
-  - component: {fileID: 114102497454229600}
-  - component: {fileID: 114721074007029264}
+  - component: {fileID: 114215706851113824}
+  - component: {fileID: 114106811829250650}
   - component: {fileID: 65561514271968170}
   - component: {fileID: 54352069929117908}
   m_Layer: 0
@@ -552,7 +552,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5526352, y: 1.3766451, z: 1.1184158}
   m_Center: {x: -0.015421867, y: -0.017876148, z: -0.059207916}
---- !u!114 &114102497454229600
+--- !u!114 &114106811829250650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -560,12 +560,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728835336825074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb81b63b4d5aa7d40ac5de54e9d571b0, type: 3}
+  m_Script: {fileID: 11500000, guid: e873f51985c85344fa10244d878c0d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 2
-  enemySpeed: 3
---- !u!114 &114721074007029264
+  enemyHealth: 1
+  target: {fileID: 4319981681462276, guid: 41540d4dd944a5f4a9333db559101cb8, type: 2}
+  myTransform: {fileID: 4582944960581496}
+--- !u!114 &114215706851113824
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
