@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -18,8 +19,8 @@ public class GameManager : MonoBehaviour
 	//public GameObject deathParticles;
 	
 // SCREEN SHAKE VARS
-	//public float shakeIntensity;
-	//public float shakeDuration;
+	public float shakeIntensityHurt;
+	public float shakeDurationHurt;
 	
 // PLAYER HEALTH VARS
     public int healthValue;
@@ -30,8 +31,10 @@ public class GameManager : MonoBehaviour
 // GAME MANAGER VARS
 	public static GameManager instance {get; private set;}
 	private float resetDelay = 1f;
-	private bool gameOverCheck = false;
+	public static bool isPlayerWon = false;
 	public static bool isPlayerDead = false;
+	private bool gameOverCheck = false;
+	private float score;
 	
 // TEXT VARS
 	public Text gameOver;
@@ -43,7 +46,6 @@ public class GameManager : MonoBehaviour
 		youWon.enabled = false;
 		GameManagerCheck();
 		SetUp();
-		CheckGameOver();
 	}
 	
 	void Update()
@@ -53,6 +55,14 @@ public class GameManager : MonoBehaviour
 		if (isPlayerDead == true)
 		{
 			gameOver.enabled = true;
+			Time.timeScale = .25f;
+			gameOverCheck = true;
+			Invoke("Reset", resetDelay);
+		}
+
+		if (isPlayerWon == true)
+		{
+			youWon.enabled = true;
 			Time.timeScale = .25f;
 			gameOverCheck = true;
 			Invoke("Reset", resetDelay);
@@ -81,6 +91,7 @@ public class GameManager : MonoBehaviour
 	{
 		healthValue--;
 		print("ouch!");
+		Camera.main.gameObject.GetComponent<CameraShake>().ShakeScreen(shakeIntensityHurt,shakeDurationHurt);
 		
 		if (healthValue <= 0)
 		{
@@ -92,22 +103,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	
-	void CheckGameOver()
-	{
-		//TODO - Create win game function
-//		if (bricks < 1)
-//		{
-//			gameObject.GetComponent<AudioSource>().clip = playerWin;
-//			gameObject.GetComponent<AudioSource>().Play();
-//			
-//			youWon.GetComponent<Text>().enabled = true;
-//			Time.timeScale = .25f;
-//			Invoke("Reset", resetDelay);
-//		}
-
-		
-	}
-	
 	void Reset()
 	{
 		//TODO - Fix game reset function
@@ -116,6 +111,7 @@ public class GameManager : MonoBehaviour
 		{
 			SceneManager.LoadScene(0);
 			isPlayerDead = false;
+			isPlayerWon = false;
 			PlayerScore.playerScore = 0;
 		}
 //		else

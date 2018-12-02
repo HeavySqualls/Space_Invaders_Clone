@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 36194839}
+  scoreGoal: 500
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4219927697324212, guid: 238ae1fefb3523b449c7e02fa967f3b0, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 238ae1fefb3523b449c7e02fa967f3b0, type: 2}
@@ -577,6 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 534669905}
+  - component: {fileID: 534669906}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   m_Layer: 0
@@ -646,6 +648,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0, y: 0, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59f75426ac3325498da206d410a9de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &668967830
 Prefab:
   m_ObjectHideFlags: 0
@@ -874,6 +887,8 @@ MonoBehaviour:
   player: {fileID: 1347173912914162, guid: 41540d4dd944a5f4a9333db559101cb8, type: 2}
   clonePlayer: {fileID: 1347173912914162, guid: 41540d4dd944a5f4a9333db559101cb8,
     type: 2}
+  shakeIntensityHurt: 1
+  shakeDurationHurt: 1
   healthValue: 5
   aoeNode: 0
   gameOver: {fileID: 1373397855}
@@ -889,7 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &858574527
 MonoBehaviour:
@@ -1170,7 +1185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4663735791096894, guid: 2e5aa617683162f4c814eb57110c5081, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114868380334960338, guid: 2e5aa617683162f4c814eb57110c5081,
         type: 2}
@@ -1394,7 +1409,7 @@ RectTransform:
   - {fileID: 1627635043}
   - {fileID: 1347353741}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2289,7 +2304,7 @@ Transform:
   - {fileID: 1799901330}
   - {fileID: 1920313106}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2115845683
 Prefab:

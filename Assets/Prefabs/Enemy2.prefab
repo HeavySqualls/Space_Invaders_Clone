@@ -192,8 +192,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728835336825074}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 5.3641, y: 26.099, z: -0.15867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.248237, y: 15.803579, z: 0.009635508}
   m_LocalScale: {x: 1.0796949, y: 1.121458, z: 0.560729}
   m_Children:
   - {fileID: 4143499640971620}
@@ -204,7 +204,7 @@ Transform:
   - {fileID: 4484936297309458}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4629745101037988
 Transform:
   m_ObjectHideFlags: 1
@@ -538,7 +538,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 72
   m_CollisionDetection: 0
 --- !u!65 &65561514271968170
 BoxCollider:
