@@ -28,6 +28,7 @@
           <e p="AOENode.cs" t="Include" />
           <e p="CameraShake.cs" t="Include" />
           <e p="DeathWall.cs" t="Include" />
+          <e p="DropSpawner.cs" t="Include" />
           <e p="EnemyContact.cs" t="Include" />
           <e p="EnemyControl.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />

@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
 	public void RefillAmmo()
 	{
-		aoeNumber = aoeNumber + 1;
+		aoeNumber = aoeNumber + 4;
 		print(aoeNumber);
 	}
 	

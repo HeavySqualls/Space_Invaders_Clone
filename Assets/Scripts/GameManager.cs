@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
 			isPlayerDead = false;
 			isPlayerWon = false;
 			PlayerScore.playerScore = 0;
+			PlayerController.Instance.RefillAmmo();
 		}
 //		else
 //		{
