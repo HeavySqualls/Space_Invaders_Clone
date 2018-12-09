@@ -9,6 +9,7 @@ TagManager:
   - ammo2
   - Base
   - Enemy2
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

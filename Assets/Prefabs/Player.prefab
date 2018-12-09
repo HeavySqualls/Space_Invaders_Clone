@@ -417,9 +417,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.25
+  player: {fileID: 1347173912914162}
   bullet1: {fileID: 1362952910730190, guid: d015f8de78e7e734d9a691b6b7b6059d, type: 2}
   bullet2: {fileID: 1393595217186840, guid: 7a1994566952ecc4793835823be0d424, type: 2}
-  numberofProjectiles: 7
+  shield: {fileID: 1035648876482906, guid: 1ed5f3d7da21dd74b8f75cc016ed0142, type: 2}
+  numberofProjectiles: 10
   aoeNumber: 4
-  coolDown: 0.5
-  coolDownTimer: 0
+  coolDown: 0.2
+  coolDownShield: 10
+  coolDownTimerAOE: 0
+  coolDownTimerShield: 0

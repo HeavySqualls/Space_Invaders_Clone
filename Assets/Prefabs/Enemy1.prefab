@@ -418,6 +418,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 1
+  healthDrop: {fileID: 1161068823818172, guid: 238ae1fefb3523b449c7e02fa967f3b0, type: 2}
+  ammoDrop: {fileID: 1742946530201950, guid: 2e5aa617683162f4c814eb57110c5081, type: 2}
+  rewardPoint1: 220
+  rewardPoint2: 350
+  deathParticles: {fileID: 1779501352370212, guid: f4bc03d37e3117a4f98331ed3b8b29d0,
+    type: 2}
+  shakeIntensity: 0.5
+  shakeDuration: 0.5
 --- !u!114 &114135254326446744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -431,3 +439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 1
   enemySpeed: 2
+  bullet: {fileID: 1293981217714638, guid: 7d96b5a94c3b0ac4ab0da09374304605, type: 2}
+  timer: 0
+  waitingTime: 2

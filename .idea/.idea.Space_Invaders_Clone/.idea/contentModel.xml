@@ -23,24 +23,37 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Ammo.cs" t="Include" />
-          <e p="AOEControl.cs" t="Include" />
-          <e p="AOENode.cs" t="Include" />
-          <e p="CameraShake.cs" t="Include" />
-          <e p="DeathWall.cs" t="Include" />
-          <e p="DropSpawner.cs" t="Include" />
-          <e p="EnemyContact.cs" t="Include" />
-          <e p="EnemyControl.cs" t="Include" />
+          <e p="Drops" t="Include">
+            <e p="Ammo.cs" t="Include" />
+            <e p="HealthDrop.cs" t="Include" />
+            <e p="ShieldControl.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="EnemyContact.cs" t="Include" />
+            <e p="EnemyControl.cs" t="Include" />
+            <e p="Spawner.cs" t="Include" />
+            <e p="TargetPlayer.cs" t="Include" />
+          </e>
+          <e p="Enviornment" t="Include">
+            <e p="DeathWall.cs" t="Include" />
+            <e p="ProtectionWall.cs" t="Include" />
+            <e p="Rotate.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
-          <e p="HealthDrop.cs" t="Include" />
-          <e p="HealthNodes.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
-          <e p="PlayerScore.cs" t="Include" />
-          <e p="ProjectileControl.cs" t="Include" />
-          <e p="ProtectionWall.cs" t="Include" />
-          <e p="Rotate.cs" t="Include" />
-          <e p="Spawner.cs" t="Include" />
-          <e p="TargetPlayer.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+            <e p="PlayerScore.cs" t="Include" />
+          </e>
+          <e p="Projectiles" t="Include">
+            <e p="AOEControl.cs" t="Include" />
+            <e p="ProjectileControl.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="AOENode.cs" t="Include" />
+            <e p="CameraShake.cs" t="Include" />
+            <e p="HealthNodes.cs" t="Include" />
+            <e p="ShieldNode.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

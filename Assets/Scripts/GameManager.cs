@@ -8,15 +8,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {	
-	//TODO - enemy spawning 
-	//TODO - player respawn
-	//TODO - player score 
-
 // GAME OBJECT VARS
 	public GameObject player;
 	public GameObject clonePlayer;
 
-	//public GameObject deathParticles;
+	public GameObject deathParticles;
 	
 // SCREEN SHAKE VARS
 	public float shakeIntensityHurt;
@@ -27,6 +23,7 @@ public class GameManager : MonoBehaviour
 	
 // PLAYER AMMO VARS
 	public int aoeNode;
+	public float shieldNode;
 	
 // GAME MANAGER VARS
 	public static GameManager instance {get; private set;}
@@ -51,6 +48,8 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		aoeNode = PlayerController.Instance.aoeNumber;
+
+		shieldNode = PlayerController.Instance.coolDownTimerShield;
 		
 		if (isPlayerDead == true)
 		{
@@ -86,26 +85,23 @@ public class GameManager : MonoBehaviour
 		clonePlayer = Instantiate(player, transform.position, Quaternion.identity) as GameObject;
 	}
 
-	//TODO - player health
 	public void PlayerHealth()
 	{
 		healthValue--;
-		print("ouch!");
+		print("Player has been shot!");
 		Camera.main.gameObject.GetComponent<CameraShake>().ShakeScreen(shakeIntensityHurt,shakeDurationHurt);
 		
 		if (healthValue <= 0)
 		{
-			print("damn");
-			//Instantiate(deathParticles, clonePlayer.transform.position, Quaternion.identity);
+			print("Player has been killed!");
+			Instantiate(deathParticles, clonePlayer.transform.position, Quaternion.identity);
 			isPlayerDead = true;
 			Destroy(clonePlayer);
-			//Camera.main.gameObject.GetComponent<CameraShake>().ShakeScreen(shakeIntensity,shakeDuration);
 		}
 	}
 	
 	void Reset()
 	{
-		//TODO - Fix game reset function
 		Time.timeScale = 1;
 		if (gameOverCheck == true)
 		{

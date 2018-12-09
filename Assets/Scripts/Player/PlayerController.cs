@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour
@@ -12,14 +14,19 @@ public class PlayerController : MonoBehaviour
 	private Vector3 playerPos = new Vector3(0, 5f, 0);
 	
 // SHOOT BULLET VARS
+	public GameObject player;
 	public GameObject bullet1;	
 	public GameObject bullet2;
+	public GameObject shield;
+	
 	[SerializeField] int numberofProjectiles;
 	private Vector3 startPoint;
 	private float radius;
 	public int aoeNumber = 4;
-	public float coolDown = 1;
-	public float coolDownTimer;
+	public float coolDown = 1f;
+	public float coolDownShield = 3f;
+	public float coolDownTimerAOE;
+	public float coolDownTimerShield;
 
 // MAKES THE CLASS A SINGLETON TO BE EASILY ACCESSED BY OTHER CLASSES
 	public static PlayerController Instance {get; private set;}
@@ -51,37 +58,62 @@ public class PlayerController : MonoBehaviour
 		transform.position = playerPos;
 	
 		// SHOOTING 
-		if (Input.GetButtonUp("Fire1") && coolDownTimer == 0f)
+		if (Input.GetButtonUp("Fire1") && coolDownTimerAOE == 0f)
 		{
 			print("weapon cooled");
-			coolDownTimer = coolDown;
+			coolDownTimerAOE = coolDown;
 			Instantiate(bullet1, transform.position, transform.rotation);
 		}	
 		
-		if (Input.GetButtonUp("Fire2") && coolDownTimer == 0f)
+		if (Input.GetButtonUp("Fire2"))
 		{
-			coolDownTimer = coolDown;
 			if (aoeNumber == 0)
 			{
 				print("No AOE!");
 			}
 			else
 			{
-				print("weapon cooled");
 				startPoint = playerPos;
 				SpawnAOEProjectiles(numberofProjectiles);
-				aoeNumber = aoeNumber - 1;
+				aoeNumber--;
 			}
 		}
 
-		if (coolDownTimer > 0)
+		if (Input.GetKeyUp(KeyCode.Space) && coolDownTimerShield == 0f)
 		{
-			coolDownTimer -= Time.deltaTime;
+			coolDownTimerShield = coolDownShield;
+			(Instantiate(shield, transform.position, transform.rotation) as GameObject).transform.parent = player.transform; // Instantiates and makes the shield a child of the player
 		}
 		
-		if (coolDownTimer < 0)
+// COOL DOWN FOR NORMAL PROJECTILE
+		if (coolDownTimerAOE > 0f)
 		{
-			coolDownTimer = 0;
+			coolDownTimerAOE -= Time.deltaTime;
+		}
+		
+		if (coolDownTimerAOE < 0f)
+		{
+			coolDownTimerAOE = 0f;
+		}
+
+// COOL DOWN FOR SHIELD
+		if (coolDownTimerShield > 0f)
+		{
+			coolDownTimerShield -= Time.deltaTime;
+		}
+		
+		if (coolDownTimerShield < 0f)
+		{
+			coolDownTimerShield = 0f;
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "EnemyProjectile")
+		{
+			print("player shot!");
+			GameManager.instance.PlayerHealth();
 		}
 	}
 
@@ -89,8 +121,16 @@ public class PlayerController : MonoBehaviour
 	{
 			for (int i = 5; i > 0; i--)
 			{
-				coolDown = coolDown - 1 * Time.deltaTime;
+				coolDown = coolDown - 1f * Time.deltaTime;
 			}
+	}
+
+	void ShieldTimer()
+	{
+		for (int i = 5; i > 0; i--)
+		{
+			coolDownShield = coolDownShield - 1f* Time.deltaTime;
+		}
 	}
 
 	void SpawnAOEProjectiles(int numberofProjectiles)
@@ -123,7 +163,6 @@ public class PlayerController : MonoBehaviour
 	
 	public void RefillHealth()
 	{
-			GameManager.instance.healthValue = GameManager.instance.healthValue + 1;
-		
+			GameManager.instance.healthValue = GameManager.instance.healthValue +5;
 	}
 }
