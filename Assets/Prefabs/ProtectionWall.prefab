@@ -210,4 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7200afaf2524df6418fd2d0fa67fd4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dealthParticles: {fileID: 1100387946420212, guid: dd41d90b02003aa40b5dbd44a6e617f0,
+    type: 2}
   health: 3

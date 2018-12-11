@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	public float coolDownShield = 3f;
 	public float coolDownTimerAOE;
 	public float coolDownTimerShield;
+	
 
 // MAKES THE CLASS A SINGLETON TO BE EASILY ACCESSED BY OTHER CLASSES
 	public static PlayerController Instance {get; private set;}
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour
 		{
 			coolDownShield = coolDownShield - 1f* Time.deltaTime;
 		}
+		
 	}
 
 	void SpawnAOEProjectiles(int numberofProjectiles)
@@ -151,7 +153,6 @@ public class PlayerController : MonoBehaviour
 			proj.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, projectileMoveDirection.y);
 
 			angle += angleStep;
-
 		}
 	}
 
