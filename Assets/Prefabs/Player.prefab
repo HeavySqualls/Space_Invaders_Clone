@@ -523,3 +523,5 @@ MonoBehaviour:
   coolDownShield: 10
   coolDownTimerAOE: 0
   coolDownTimerShield: 0
+  shoot1: {fileID: 8300000, guid: d3247579c549643a5b3a95f9224eaf3c, type: 3}
+  shoot2: {fileID: 8300000, guid: fed559e81a4af47e6a873693a7525a30, type: 3}

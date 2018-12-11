@@ -57,9 +57,10 @@ GameObject:
   - component: {fileID: 23081950509961782}
   - component: {fileID: 114135254326446744}
   - component: {fileID: 114044924391639428}
-  - component: {fileID: 65345997756736382}
-  - component: {fileID: 54543294789993748}
+  - component: {fileID: 114155964419284402}
   - component: {fileID: 82720893381401562}
+  - component: {fileID: 54543294789993748}
+  - component: {fileID: 65345997756736382}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy1
@@ -522,8 +523,7 @@ MonoBehaviour:
   shakeIntensity: 0.5
   shakeDuration: 0.5
   tankDeath: {fileID: 8300000, guid: 8e3b4236a7258471caabb3542eee992b, type: 3}
-  playerCollide: {fileID: 8300000, guid: fc582df3572b64d279888946675505af, type: 3}
-  itemDrop: {fileID: 8300000, guid: 104d3de4bc4804e89a6bdeb489998ae6, type: 3}
+  rend: {fileID: 0}
 --- !u!114 &114135254326446744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,3 +540,15 @@ MonoBehaviour:
   bullet: {fileID: 1293981217714638, guid: 7d96b5a94c3b0ac4ab0da09374304605, type: 2}
   timer: 0
   waitingTime: 2
+--- !u!114 &114155964419284402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362501067821668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49227206e0c338144a655a4d616d16e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 0}

@@ -111,6 +111,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="AOENode.cs" t="Include" />
+            <e p="ButtonManager.cs" t="Include" />
             <e p="CameraShake.cs" t="Include" />
             <e p="HealthNodes.cs" t="Include" />
             <e p="ShieldNode.cs" t="Include" />

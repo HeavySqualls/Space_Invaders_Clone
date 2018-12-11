@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine;
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
 	public float coolDownShield = 3f;
 	public float coolDownTimerAOE;
 	public float coolDownTimerShield;
+	
+// SOUND VARS
+	public AudioClip shoot1;
+	public AudioClip shoot2;
 	
 
 // MAKES THE CLASS A SINGLETON TO BE EASILY ACCESSED BY OTHER CLASSES
@@ -61,6 +66,8 @@ public class PlayerController : MonoBehaviour
 		// SHOOTING 
 		if (Input.GetButtonUp("Fire1") && coolDownTimerAOE == 0f)
 		{
+			gameObject.GetComponent<AudioSource>().clip = shoot1;
+  		    gameObject.GetComponent<AudioSource>().PlayOneShot(shoot1);
 			print("weapon cooled");
 			coolDownTimerAOE = coolDown;
 			Instantiate(bullet1, transform.position, transform.rotation);
@@ -74,6 +81,8 @@ public class PlayerController : MonoBehaviour
 			}
 			else
 			{
+				gameObject.GetComponent<AudioSource>().clip = shoot2;
+				gameObject.GetComponent<AudioSource>().PlayOneShot(shoot2);
 				startPoint = playerPos;
 				SpawnAOEProjectiles(numberofProjectiles);
 				aoeNumber--;

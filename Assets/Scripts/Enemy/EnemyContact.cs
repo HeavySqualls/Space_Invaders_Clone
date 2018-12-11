@@ -7,6 +7,7 @@ public class EnemyContact : MonoBehaviour
     public float enemyHealth = 1;
     public GameObject healthDrop;
     public GameObject ammoDrop;
+    
     public int rewardPoint1 = 220;
     public int rewardPoint2 = 350;
 
@@ -18,8 +19,11 @@ public class EnemyContact : MonoBehaviour
     
 // SOUND VARS
     public AudioClip tankDeath;
-    public AudioClip playerCollide;
-    public AudioClip itemDrop;
+//    public AudioClip playerCollide;
+//    public AudioClip itemDrop;
+
+    public Renderer rend;
+
     
     
     
@@ -28,8 +32,8 @@ public class EnemyContact : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             print("Touched Enemy");
-            gameObject.GetComponent<AudioSource>().clip = playerCollide;
-			gameObject.GetComponent<AudioSource>().PlayOneShot(playerCollide);
+//            gameObject.GetComponent<AudioSource>().clip = playerCollide;
+//			  gameObject.GetComponent<AudioSource>().PlayOneShot(playerCollide);
             GameManager.instance.PlayerHealth();
         }	
 		
@@ -40,15 +44,15 @@ public class EnemyContact : MonoBehaviour
             
             if (PlayerScore.playerScore == rewardPoint1)
             {
-                gameObject.GetComponent<AudioSource>().clip = itemDrop;
-                gameObject.GetComponent<AudioSource>().PlayOneShot(itemDrop);
+//                gameObject.GetComponent<AudioSource>().clip = itemDrop;
+//                gameObject.GetComponent<AudioSource>().PlayOneShot(itemDrop);
                 Instantiate(healthDrop, transform.position, transform.rotation);
             }
             
             if (PlayerScore.playerScore == rewardPoint2)
             {
-                gameObject.GetComponent<AudioSource>().clip = itemDrop;
-                gameObject.GetComponent<AudioSource>().PlayOneShot(itemDrop);
+//                gameObject.GetComponent<AudioSource>().clip = itemDrop;
+//                gameObject.GetComponent<AudioSource>().PlayOneShot(itemDrop);
                 Instantiate(ammoDrop, transform.position, transform.rotation);
             }
             
@@ -58,8 +62,10 @@ public class EnemyContact : MonoBehaviour
                 gameObject.GetComponent<AudioSource>().clip = tankDeath;
                 gameObject.GetComponent<AudioSource>().PlayOneShot(tankDeath);
                 Camera.main.gameObject.GetComponent<CameraShake>().ShakeScreen(shakeIntensity,shakeDuration);
+                rend = GetComponent<Renderer>();
+                rend.enabled = false;
                 Instantiate(deathParticles, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                Destroy(gameObject, 0.5f);
             }
         }
 		
@@ -83,8 +89,11 @@ public class EnemyContact : MonoBehaviour
                 Destroy(other.gameObject);
                 gameObject.GetComponent<AudioSource>().clip = tankDeath;
                 gameObject.GetComponent<AudioSource>().PlayOneShot(tankDeath);
+                Camera.main.gameObject.GetComponent<CameraShake>().ShakeScreen(shakeIntensity,shakeDuration);
+                rend = GetComponent<Renderer>();
+                rend.enabled = false;
                 Instantiate(deathParticles, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                Destroy(gameObject, 0.5f);
             }
         }
     }
